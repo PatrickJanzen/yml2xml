@@ -13,7 +13,7 @@ use XMLWriter;
 
 class ConvertCommand extends Command
 {
-    protected static $defaultName = 'y2x:convert';
+    protected static $defaultName = 'y2x';
     /**
      * @var SymfonyStyle
      */
