@@ -1,0 +1,17 @@
+<!--Converted from services.yaml-->
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults autowire="true" autoconfigure="true"/>
+        <prototype namespace="App\" resource="../src/*" exclude="../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}"/>
+
+        <!-- this config only applies to the services created by this file -->
+        <instanceof id="App\Types\TypeHandler" autowire="true">
+            <tag name="app.typeHandler"/>
+        </instanceof>
+
+        <service id="App\Command\ConvertCommand">
+            <argument type="tagged_iterator" tag="app.typeHandler"/>
+        </service>
+
+    </services>
+</container>
