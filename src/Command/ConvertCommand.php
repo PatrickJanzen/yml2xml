@@ -96,7 +96,7 @@ class ConvertCommand extends Command
             return 1;
         }
 
-        $this->io->text(count($this->yaml));
+        //$this->io->text(count($this->yaml));
 
         return 0;
     }
