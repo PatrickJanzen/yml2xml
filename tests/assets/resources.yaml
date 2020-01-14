@@ -1,0 +1,5 @@
+resources:
+  App\Entity\Book:
+    attributes:
+      input: App\Dto\BookInput
+      output: App\Dto\BookOutput
