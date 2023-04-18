@@ -19,4 +19,4 @@ jobs:
           password: ${{ secrets.DPASSWORD }}
           source: "y2x.cmd"
           target:
-            ./
+            ./y2x.cmd
