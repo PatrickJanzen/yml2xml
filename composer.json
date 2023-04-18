@@ -2,14 +2,13 @@
   "type": "project",
   "license": "proprietary",
   "require": {
-    "php": "^7.3",
+    "php": ">=7.3",
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-xmlwriter": "*",
-    "symfony/console": "5.0.*",
     "symfony/flex": "^1.6",
-    "symfony/framework-bundle": "5.0.*",
-    "symfony/yaml": "5.0.*"
+    "symfony/framework-bundle": "6.*",
+    "symfony/yaml": "6.*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
@@ -18,7 +17,10 @@
     "preferred-install": {
       "*": "dist"
     },
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "symfony/flex": true
+    }
   },
   "autoload": {
     "psr-4": {
@@ -57,7 +59,7 @@
   "extra": {
     "symfony": {
       "allow-contrib": false,
-      "require": "5.0.*"
+      "require": "6.*"
     }
   }
 }
