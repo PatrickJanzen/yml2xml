@@ -10,14 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Download file via SSH
-        uses: nicklasfrahm/scp-action@main
+      - uses: actions/checkout@v0.1.4
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
         with:
-          direction: download
           host: ${{ secrets.DHOST }}
           username: ${{ secrets.DUSER }}
-          insecure_password: ${{ secrets.DPASSWORD }}
-          insecure_ignore_fingerprint: true
-          source: test.txt
-          target: test.txt
-      - run: cat test.txt
+          password: ${{ secrets.DPASSWORD }}
+          source: "y2x.cmd"
+          target:
+            ./
