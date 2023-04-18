@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.DHOST }}
           username: ${{ secrets.DUSER }}
           insecure_password: ${{ secrets.DPASSWORD }}
-          fingerprint: ${{ secrets.DFINGERPRINT }}
+          insecure_ignore_fingerprint: true
           source: test.txt
           target: test.txt
       - run: cat test.txt
