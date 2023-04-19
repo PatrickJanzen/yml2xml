@@ -10,9 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      KEY: ${{RANDOM}}
+      KEY: x-${RANDOM}
     steps:
-       - run: echo ${KEY}
+       - run: echo ${RANDOM}
+       - run: echo ${RANDOM}
+       - run: echo ${RANDOM}
    #   - run: sudo apt install lftp
     #  - run: lftp -e "mirror -R . testDeploy" -u ${{ secrets.DUSER }},${{ secrets.DPASSWORD }} ${{ secrets.DHOST }}
 #      - uses: actions/checkout@v3
