@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - run: scp
-      - run: sshpass -p ${{ secrets.DPASSWORD }} scp -r ${{ secrets.DUSER }}@${{ secrets.DHOST }}:/.env.local.php /.env.local.php
+      - run: sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.DUSER }}@${{ secrets.DHOST }}:/.env.local.php /.env.local.php
       - run: ls
