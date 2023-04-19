@@ -1,7 +1,7 @@
 name: deploy
 
 env:
-  KEY: ${RANDOM}
+  KEY: $RANDOM
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
