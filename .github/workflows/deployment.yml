@@ -10,14 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
-      - uses: actions/checkout@v3 
-      - run: ls -la
+      - uses: actions/checkout@v3
       - run: sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.DUSER }}@${{ secrets.DHOST }}:/.env.local.php .env.local.php
-      - run: ls -la
       - uses: php-actions/composer@v3
-      - run: ls -la
-      - run: echo 'hi' > tut.txt
-      - run: ls -la
-      - run: "sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./ ${{ secrets.DUSER }}@${{ secrets.DHOST }}:testDeploy/"
+      - run: "sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r . ${{ secrets.DUSER }}@${{ secrets.DHOST }}:testDeploy/"
      
