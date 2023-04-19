@@ -1,5 +1,7 @@
 name: deploy
 
+env:
+  KEY: ${RANDOM}
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -10,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-       - run: echo ${RANDOM}
+       - run: echo ${KEY}
    #   - run: sudo apt install lftp
     #  - run: lftp -e "mirror -R . testDeploy" -u ${{ secrets.DUSER }},${{ secrets.DPASSWORD }} ${{ secrets.DHOST }}
 #      - uses: actions/checkout@v3
