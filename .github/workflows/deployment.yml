@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt install lftp
-      - run: lftp
+      - run: lftp -e "mirror -R . testDeploy" -u ${{ secrets.DUSER }},${{ secrets.DPASSWORD }} ftps://${{ secrets.DHOST }}
 #      - uses: actions/checkout@v3
 #      - run: sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.DUSER }}@${{ secrets.DHOST }}:/.env.local.php .env.local.php
 #      - uses: php-actions/composer@v3
