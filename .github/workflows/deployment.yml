@@ -19,5 +19,5 @@ jobs:
       - run: ls -la
       - run: echo 'hi' > tut.txt
       - run: ls -la
-      - run: "sshpass -p ${{ secrets.DPASSWORD }} scp tut.txt ${{ secrets.DUSER }}@${{ secrets.DHOST }}:"
+      - run: "sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null tut.txt ${{ secrets.DUSER }}@${{ secrets.DHOST }}:"
      
