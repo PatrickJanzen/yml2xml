@@ -10,10 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-       - id: generate_number
+       - name: generate_key
+         id: generate_number
          run: echo "random_number=$(($RANDOM))" >> $GITHUB_OUTPUT
-       - run: echo ${{ steps.generate_number.outputs.random_number }}
-       - run: echo ${{ steps.generate_number.outputs.random_number }}
+       - name: test
+          - run: echo ${{ steps.generate_number.outputs.random_number }}
+          - run: echo ${{ steps.generate_number.outputs.random_number }}
    #   - run: sudo apt install lftp
     #  - run: lftp -e "mirror -R . testDeploy" -u ${{ secrets.DUSER }},${{ secrets.DPASSWORD }} ${{ secrets.DHOST }}
 #      - uses: actions/checkout@v3
