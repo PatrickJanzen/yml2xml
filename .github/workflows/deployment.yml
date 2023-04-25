@@ -1,5 +1,5 @@
 name: deploy
-
+run-name: Deploy to hiu by @${{ github.actor }}
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -7,19 +7,9 @@ on:
 
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  deployment:
     runs-on: ubuntu-latest
     steps:
-       - name: generate_key
-         id: generate_number
-         run: echo "random_number=$(($RANDOM))" >> $GITHUB_OUTPUT
-       - name: test
-          - run: echo ${{ steps.generate_number.outputs.random_number }}
-          - run: echo ${{ steps.generate_number.outputs.random_number }}
-   #   - run: sudo apt install lftp
-    #  - run: lftp -e "mirror -R . testDeploy" -u ${{ secrets.DUSER }},${{ secrets.DPASSWORD }} ${{ secrets.DHOST }}
-#      - uses: actions/checkout@v3
-#      - run: sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.DUSER }}@${{ secrets.DHOST }}:/.env.local.php .env.local.php
-#      - uses: php-actions/composer@v3
-#      - run: "sshpass -p ${{ secrets.DPASSWORD }} scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./* ${{ secrets.DUSER }}@${{ secrets.DHOST }}:testDeploy/"
-     
+      - name: execute migrations
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://www.d0nald.de/slack.php
